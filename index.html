@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Aternos Control Panel</title>
+</head>
+<body>
+  <h1>Aternos Server Panel</h1>
+  <button onclick="startServer()">Start Server</button>
+  <p id="msg"></p>
+
+  <script>
+    async function startServer() {
+      document.getElementById('msg').textContent = 'Starting server...';
+      const res = await fetch('http://localhost:3000/start-server');
+      const text = await res.text();
+      document.getElementById('msg').textContent = text;
+    }
+  </script>
+</body>
+</html>
